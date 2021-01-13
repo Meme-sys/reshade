@@ -218,20 +218,7 @@ void reshade::runtime::on_present()
 		_preset_save_success = false;
 
 	// Detect high network traffic
-	static int cooldown = 0, traffic = 0;
-	if (cooldown-- > 0)
-	{
-		traffic += g_network_traffic > 0;
-	}
-	else
-	{
-		_has_high_network_activity = traffic > 10;
-		traffic = 0;
-		cooldown = 60;
-	}
-
-	// Reset frame statistics
-	g_network_traffic = 0;
+	// removed
 }
 
 bool reshade::runtime::load_effect(const std::filesystem::path &source_file, const reshade::ini_file &preset, size_t effect_index, bool preprocess_required)
